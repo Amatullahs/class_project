@@ -72,5 +72,130 @@ function submitTest() {
     document.getElementById("result").innerHTML = "<p>Your personality matches with a <strong>" + car + "</strong>!</p>";
 }
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personality Car Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .question {
+            margin-bottom: 20px;
+        }
+
+        .question p {
+            margin: 0 0 10px;
+            font-weight: bold;
+        }
+
+        .question input[type="radio"] {
+            display: none;
+        }
+
+        .question label {
+            display: inline-block;
+            padding: 8px 20px;
+            background-color: #f4f4f4;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .question label:hover {
+            background-color: #ddd;
+        }
+
+        .result {
+            margin-top: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Personality Car Test</h1>
+        <form id="personalityTest">
+            <div class="question">
+                <p>Question 1: What's your favorite color?</p>
+                <input type="radio" id="q1a" name="q1" value="blue">
+                <label for="q1a">Blue</label>
+                <input type="radio" id="q1b" name="q1" value="red">
+                <label for="q1b">Red</label>
+                <input type="radio" id="q1c" name="q1" value="black">
+                <label for="q1c">Black</label>
+            </div>
+
+            <div class="question">
+                <p>Question 2: What's your ideal weekend activity?</p>
+                <input type="radio" id="q2a" name="q2" value="hiking">
+                <label for="q2a">Hiking</label>
+                <input type="radio" id="q2b" name="q2" value="parties">
+                <label for="q2b">Going to parties</label>
+                <input type="radio" id="q2c" name="q2" value="home">
+                <label for="q2c">Staying at home</label>
+            </div>
+
+            <div class="question">
+                <p>Question 3: What's your dream vacation spot?</p>
+                <input type="radio" id="q3a" name="q3" value="mountains">
+                <label for="q3a">Mountains</label>
+                <input type="radio" id="q3b" name="q3" value="beach">
+                <label for="q3b">Beach</label>
+                <input type="radio" id="q3c" name="q3" value="countryside">
+                <label for="q3c">Countryside</label>
+            </div>
+
+            <button type="button" onclick="submitTest()">Submit</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </div>
+
+    <script>
+        function submitTest() {
+            var answer1 = document.querySelector('input[name="q1"]:checked').value;
+            var answer2 = document.querySelector('input[name="q2"]:checked').value;
+            var answer3 = document.querySelector('input[name="q3"]:checked').value;
+
+            var car = "";
+            if (answer1 === "blue" && answer2 === "hiking" && answer3 === "mountains") {
+                car = "Porsche 911";
+            } else if (answer1 === "red" && answer2 === "parties" && answer3 === "beach") {
+                car = "BMW M5";
+            } else if (answer1 === "black" && answer2 === "home" && answer3 === "countryside") {
+                car = "Mercedes S-Class";
+            } else {
+                car = "Bentley Continental GT";
+            }
+
+            document.getElementById("result").innerHTML = "Your personality matches with a <strong>" + car + "</strong>!";
+        }
+    </script>
+</body>
+</html>
+
 
   
