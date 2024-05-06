@@ -19,6 +19,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative; /* Added for confetti */
         }
 
         h1 {
@@ -61,6 +62,31 @@
             text-align: center;
             font-weight: bold;
             font-size: 18px;
+        }
+
+        /* Added styles for confetti */
+        #confetti {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            pointer-events: none;
+            display: none;
+        }
+
+        .confetti {
+            width: 10px;
+            height: 10px;
+            background-color: #fbc02d;
+            position: absolute;
+            animation: confetti-fall 2s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100vh) rotate(720deg); }
         }
     </style>
 </head>
@@ -112,6 +138,9 @@
         </form>
 
         <div id="result" class="result"></div>
+
+        <!-- Confetti HTML -->
+        <div id="confetti"></div>
     </div>
 
     <script>
@@ -138,6 +167,24 @@
             }
 
             document.getElementById("result").innerHTML = "<p>Your personality matches with a <strong>" + car + "</strong>!</p>";
+
+            // Show confetti
+            showConfetti();
+        }
+
+        function showConfetti() {
+            var confettiContainer = document.getElementById('confetti');
+            var numConfettis = 100; // Adjust as needed
+
+            for (var i = 0; i < numConfettis; i++) {
+                var confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                confettiContainer.appendChild(confetti);
+            }
+
+            confettiContainer.style.display = 'block';
         }
     </script>
 </body>
