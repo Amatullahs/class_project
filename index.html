@@ -174,12 +174,18 @@
             } else if (answer1.value === "black" && answer2.value === "home" && answer3.value === "countryside" && answer4.value === "hiphop") {
                 car = "Mercedes Amg e63";
             } else {
-                car = "Pagani";
+                car = ""; // No default car
             }
 
-            // Display result in a box
-            document.getElementById("result").innerHTML = "<div class='result-box'>Your personality matches with a <strong>" + car + "</strong>!</div>";
-            showConfetti(); // Show confetti on result
+            // Check if car is not empty (i.e., a valid car was found)
+            if (car !== "") {
+                document.getElementById("result").innerHTML = "<div class='result-box'>Your personality matches with a <strong>" + car + "</strong>!</div>";
+                showConfetti(); // Show confetti on result
+            } else {
+                // Handle the case where no valid car was found
+                // For simplicity, you can display an error message here
+                document.getElementById("result").innerHTML = "<div class='result-box'>No matching car found for the given answers.</div>";
+            }
         }
 
         function showConfetti() {
