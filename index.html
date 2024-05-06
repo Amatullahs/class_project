@@ -47,4 +47,26 @@
     </div>
     <script src="script.js"></script>
 </body>
+    function submitTest() {
+    // Get user's answers
+    var answer1 = document.querySelector('input[name="q1"]:checked').value;
+    var answer2 = document.querySelector('input[name="q2"]:checked').value;
+    var answer3 = document.querySelector('input[name="q3"]:checked').value;
+
+    // Determine the car based on personality
+    var car = "";
+    if (answer1 === "blue" && answer2 === "hiking" && answer3 === "mountains") {
+        car = "Porsche 911";
+    } else if (answer1 === "red" && answer2 === "parties" && answer3 === "beach") {
+        car = "BMW M5";
+    } else if (answer1 === "black" && answer2 === "home" && answer3 === "countryside") {
+        car = "Mercedes S-Class";
+    } else {
+        car = "Bentley Continental GT";
+    }
+
+    // Display result
+    document.getElementById("result").innerHTML = "<p>Your personality matches with a <strong>" + car + "</strong>!</p>";
+}
+
   
