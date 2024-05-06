@@ -19,7 +19,7 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative; /* Added for confetti */
+            position: relative;
         }
 
         h1 {
@@ -69,35 +69,15 @@
             border-radius: 10px;
         }
 
-        /* Added styles for confetti */
-        #confetti {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 100;
-            pointer-events: none;
-            display: none;
-        }
-
-        .confetti {
-            width: 10px;
-            height: 10px;
-            background-color: #fbc02d;
-            position: absolute;
-            animation: confetti-fall 2s linear infinite;
-        }
-
-        @keyframes confetti-fall {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(100vh) rotate(720deg); }
+        .car-image {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Fun bubble letter title -->
         <h1>
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
                 <text x="0" y="80" font-family="'Bubblegum Sans', cursive" font-size="80" fill="#333">CarMatchr</text>
@@ -166,6 +146,13 @@
                 return;
             }
 
+            var carImages = {
+                "Porsche 911 gt2rs": "https://example.com/porsche_image.jpg",
+                "BMW M5": "https://example.com/bmw_image.jpg",
+                "Mercedes Amg e63": "https://example.com/mercedes_image.jpg",
+                "Pagani": "https://example.com/pagani_image.jpg"
+            };
+
             var car;
             if (answer1.value === "blue" && answer2.value === "hiking" && answer3.value === "mountains" && answer4.value === "rock") {
                 car = "Porsche 911 gt2rs";
@@ -177,8 +164,15 @@
                 car = "Pagani";
             }
 
-            // Display result in a box
-            document.getElementById("result").innerHTML = "<div class='result-box'>Your personality matches with a <strong>" + car + "</strong>!</div>";
+            // Display result in a box with image
+            var resultElement = document.getElementById("result");
+            resultElement.innerHTML = `
+                <div class="result">
+                    Your personality matches with a <strong>${car}</strong>!
+                    <img src="${carImages[car]}" alt="${car}" class="car-image">
+                </div>
+            `;
+
             showConfetti(); // Show confetti on result
         }
 
@@ -199,3 +193,4 @@
     </script>
 </body>
 </html>
+
