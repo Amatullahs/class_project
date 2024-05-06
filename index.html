@@ -64,6 +64,9 @@
             text-align: center;
             font-weight: bold;
             font-size: 18px;
+            padding: 10px;
+            border: 2px solid #333;
+            border-radius: 10px;
         }
 
         /* Added styles for confetti */
@@ -146,10 +149,10 @@
         </form>
 
         <div id="result" class="result"></div>
-
-        <!-- Confetti HTML -->
-        <div id="confetti"></div>
     </div>
+
+    <!-- Confetti container -->
+    <div id="confetti"></div>
 
     <script>
         function submitTest() {
@@ -174,7 +177,8 @@
                 car = "Pagani";
             }
 
-            document.getElementById("result").innerHTML = "<p>Your personality matches with a <strong>" + car + "</strong>!</p>";
+            // Display result in a box
+            document.getElementById("result").innerHTML = "<div class='result-box'>Your personality matches with a <strong>" + car + "</strong>!</div>";
             showConfetti(); // Show confetti on result
         }
 
