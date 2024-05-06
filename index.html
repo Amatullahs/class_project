@@ -4,80 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personality Car Test</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1>Personality Car Test</h1>
-        <form id="personalityTest">
-            <div class="question">
-                <p>Question 1: What's your favorite color?</p>
-                <input type="radio" id="q1a" name="q1" value="blue">
-                <label for="q1a">Blue</label><br>
-                <input type="radio" id="q1b" name="q1" value="red">
-                <label for="q1b">Red</label><br>
-                <input type="radio" id="q1c" name="q1" value="black">
-                <label for="q1c">Black</label><br>
-            </div>
-
-            <div class="question">
-                <p>Question 2: What's your ideal weekend activity?</p>
-                <input type="radio" id="q2a" name="q2" value="hiking">
-                <label for="q2a">Hiking</label><br>
-                <input type="radio" id="q2b" name="q2" value="parties">
-                <label for="q2b">Going to parties</label><br>
-                <input type="radio" id="q2c" name="q2" value="home">
-                <label for="q2c">Staying at home</label><br>
-            </div>
-
-            <div class="question">
-                <p>Question 3: What's your dream vacation spot?</p>
-                <input type="radio" id="q3a" name="q3" value="mountains">
-                <label for="q3a">Mountains</label><br>
-                <input type="radio" id="q3b" name="q3" value="beach">
-                <label for="q3b">Beach</label><br>
-                <input type="radio" id="q3c" name="q3" value="countryside">
-                <label for="q3c">Countryside</label><br>
-            </div>
-
-            <button type="button" onclick="submitTest()">Submit</button>
-        </form>
-
-        <div id="result"></div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
-
-<script>
-function submitTest() {
-    // Get user's answers
-    var answer1 = document.querySelector('input[name="q1"]:checked').value;
-    var answer2 = document.querySelector('input[name="q2"]:checked').value;
-    var answer3 = document.querySelector('input[name="q3"]:checked').value;
-
-    // Determine the car based on personality
-    var car = "";
-    if (answer1 === "blue" && answer2 === "hiking" && answer3 === "mountains") {
-        car = "Porsche 911";
-    } else if (answer1 === "red" && answer2 === "parties" && answer3 === "beach") {
-        car = "BMW M5";
-    } else if (answer1 === "black" && answer2 === "home" && answer3 === "countryside") {
-        car = "Mercedes S-Class";
-    } else {
-        car = "Bentley Continental GT";
-    }
-
-    // Display result
-    document.getElementById("result").innerHTML = "<p>Your personality matches with a <strong>" + car + "</strong>!</p>";
-}
-</script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personality Car Test</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -141,31 +67,31 @@ function submitTest() {
             <div class="question">
                 <p>Question 1: What's your favorite color?</p>
                 <input type="radio" id="q1a" name="q1" value="blue">
-                <label for="q1a">Blue</label>
+                <label for="q1a">Blue</label><br>
                 <input type="radio" id="q1b" name="q1" value="red">
-                <label for="q1b">Red</label>
+                <label for="q1b">Red</label><br>
                 <input type="radio" id="q1c" name="q1" value="black">
-                <label for="q1c">Black</label>
+                <label for="q1c">Black</label><br>
             </div>
 
             <div class="question">
                 <p>Question 2: What's your ideal weekend activity?</p>
                 <input type="radio" id="q2a" name="q2" value="hiking">
-                <label for="q2a">Hiking</label>
+                <label for="q2a">Hiking</label><br>
                 <input type="radio" id="q2b" name="q2" value="parties">
-                <label for="q2b">Going to parties</label>
+                <label for="q2b">Going to parties</label><br>
                 <input type="radio" id="q2c" name="q2" value="home">
-                <label for="q2c">Staying at home</label>
+                <label for="q2c">Staying at home</label><br>
             </div>
 
             <div class="question">
                 <p>Question 3: What's your dream vacation spot?</p>
                 <input type="radio" id="q3a" name="q3" value="mountains">
-                <label for="q3a">Mountains</label>
+                <label for="q3a">Mountains</label><br>
                 <input type="radio" id="q3b" name="q3" value="beach">
-                <label for="q3b">Beach</label>
+                <label for="q3b">Beach</label><br>
                 <input type="radio" id="q3c" name="q3" value="countryside">
-                <label for="q3c">Countryside</label>
+                <label for="q3c">Countryside</label><br>
             </div>
 
             <button type="button" onclick="submitTest()">Submit</button>
@@ -176,22 +102,27 @@ function submitTest() {
 
     <script>
         function submitTest() {
-            var answer1 = document.querySelector('input[name="q1"]:checked').value;
-            var answer2 = document.querySelector('input[name="q2"]:checked').value;
-            var answer3 = document.querySelector('input[name="q3"]:checked').value;
+            var answer1 = document.querySelector('input[name="q1"]:checked');
+            var answer2 = document.querySelector('input[name="q2"]:checked');
+            var answer3 = document.querySelector('input[name="q3"]:checked');
 
-            var car = "";
-            if (answer1 === "blue" && answer2 === "hiking" && answer3 === "mountains") {
+            if (!answer1 || !answer2 || !answer3) {
+                alert("Please answer all questions.");
+                return;
+            }
+
+            var car;
+            if (answer1.value === "blue" && answer2.value === "hiking" && answer3.value === "mountains") {
                 car = "Porsche 911";
-            } else if (answer1 === "red" && answer2 === "parties" && answer3 === "beach") {
+            } else if (answer1.value === "red" && answer2.value === "parties" && answer3.value === "beach") {
                 car = "BMW M5";
-            } else if (answer1 === "black" && answer2 === "home" && answer3 === "countryside") {
+            } else if (answer1.value === "black" && answer2.value === "home" && answer3.value === "countryside") {
                 car = "Mercedes S-Class";
             } else {
                 car = "Bentley Continental GT";
             }
 
-            document.getElementById("result").innerHTML = "Your personality matches with a <strong>" + car + "</strong>!";
+            document.getElementById("result").innerHTML = "<p>Your personality matches with a <strong>" + car + "</strong>!</p>";
         }
     </script>
 </body>
