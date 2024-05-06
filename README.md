@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -27,3 +27,46 @@
     <script src="script.js"></script>
 </body>
 </html>
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input[type="text"] {
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+function submitTest() {
+    // Get user's answers
+    var answer1 = document.getElementById("q1").value.toLowerCase();
+    var answer2 = document.getElementById("q2").value.toLowerCase();
+    var answer3 = document.getElementById("q3").value.toLowerCase();
+
+    // Determine the car based on personality
+    var car = "";
+    if (answer1 === "blue" && answer2 === "hiking" && answer3 === "mountains") {
+        car = "Jeep Wrangler";
+    } else if (answer1 === "red" && answer2 === "going to parties" && answer3 === "beach") {
+        car = "Convertible";
+    } else if (answer1 === "black" && answer2 === "staying at home" && answer3 === "countryside") {
+        car = "Luxury Sedan";
+    } else {
+        car = "SUV";
+    }
+
+    // Display result
+    document.getElementById("result").innerHTML = "<p>Your personality matches with a <strong>" + car + "</strong>!</p>";
+}
+
