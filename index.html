@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personality Car Test</title>
+    <title>CarMatchr - Personality Car Test</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,6 +25,8 @@
         h1 {
             text-align: center;
             color: #333;
+            font-size: 36px;
+            margin-bottom: 20px;
         }
 
         .question {
@@ -92,7 +94,13 @@
 </head>
 <body>
     <div class="container">
-        <h1>Personality Car Test</h1>
+        <!-- Fun bubble letter title -->
+        <h1>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 100">
+                <text x="0" y="80" font-family="'Bubblegum Sans', cursive" font-size="80" fill="#333">CarMatchr</text>
+            </svg>
+        </h1>
+
         <form id="personalityTest">
             <div class="question">
                 <p>Question 1: What's your favorite color?</p>
@@ -167,9 +175,7 @@
             }
 
             document.getElementById("result").innerHTML = "<p>Your personality matches with a <strong>" + car + "</strong>!</p>";
-
-            // Show confetti
-            showConfetti();
+            showConfetti(); // Show confetti on result
         }
 
         function showConfetti() {
