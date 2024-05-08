@@ -145,6 +145,46 @@
                 <label for="q4c">Hip Hop</label><br>
             </div>
 
+            <div class="question">
+                <p>Question 5: What's your preferred type of movie?</p>
+                <input type="radio" id="q5a" name="q5" value="action">
+                <label for="q5a">Action</label><br>
+                <input type="radio" id="q5b" name="q5" value="comedy">
+                <label for="q5b">Comedy</label><br>
+                <input type="radio" id="q5c" name="q5" value="drama">
+                <label for="q5c">Drama</label><br>
+            </div>
+
+            <div class="question">
+                <p>Question 6: How do you prefer to spend your evenings?</p>
+                <input type="radio" id="q6a" name="q6" value="reading">
+                <label for="q6a">Reading a book</label><br>
+                <input type="radio" id="q6b" name="q6" value="watching">
+                <label for="q6b">Watching TV shows or movies</label><br>
+                <input type="radio" id="q6c" name="q6" value="socializing">
+                <label for="q6c">Socializing with friends</label><br>
+            </div>
+
+            <div class="question">
+                <p>Question 7: Which of the following describes your ideal weekend getaway?</p>
+                <input type="radio" id="q7a" name="q7" value="exploring">
+                <label for="q7a">Exploring a new city</label><br>
+                <input type="radio" id="q7b" name="q7" value="relaxing">
+                <label for="q7b">Relaxing at a spa resort</label><br>
+                <input type="radio" id="q7c" name="q7" value="adventuring">
+                <label for="q7c">Adventuring in nature</label><br>
+            </div>
+
+            <div class="question">
+                <p>Question 8: What's your favorite type of cuisine?</p>
+                <input type="radio" id="q8a" name="q8" value="italian">
+                <label for="q8a">Italian</label><br>
+                <input type="radio" id="q8b" name="q8" value="asian">
+                <label for="q8b">Asian</label><br>
+                <input type="radio" id="q8c" name="q8" value="mexican">
+                <label for="q8c">Mexican</label><br>
+            </div>
+
             <button type="button" onclick="submitTest()">Submit</button>
         </form>
 
@@ -160,18 +200,22 @@
             var answer2 = document.querySelector('input[name="q2"]:checked');
             var answer3 = document.querySelector('input[name="q3"]:checked');
             var answer4 = document.querySelector('input[name="q4"]:checked');
+            var answer5 = document.querySelector('input[name="q5"]:checked');
+            var answer6 = document.querySelector('input[name="q6"]:checked');
+            var answer7 = document.querySelector('input[name="q7"]:checked');
+            var answer8 = document.querySelector('input[name="q8"]:checked');
 
-            if (!answer1 || !answer2 || !answer3 || !answer4) {
+            if (!answer1 || !answer2 || !answer3 || !answer4 || !answer5 || !answer6 || !answer7 || !answer8) {
                 alert("Please answer all questions.");
                 return;
             }
 
             var car;
-            if (answer1.value === "blue" && answer2.value === "hiking" && answer3.value === "mountains" && answer4.value === "rock") {
+            if (answer1.value === "blue" && answer2.value === "hiking" && answer3.value === "mountains" && answer4.value === "rock" && answer5.value === "action" && answer6.value === "reading" && answer7.value === "exploring" && answer8.value === "italian") {
                 car = "Porsche 911 gt2rs";
-            } else if (answer1.value === "red" && answer2.value === "parties" && answer3.value === "beach" && answer4.value === "pop") {
+            } else if (answer1.value === "red" && answer2.value === "parties" && answer3.value === "beach" && answer4.value === "pop" && answer5.value === "comedy" && answer6.value === "watching" && answer7.value === "relaxing" && answer8.value === "asian") {
                 car = "BMW M5";
-            } else if (answer1.value === "black" && answer2.value === "home" && answer3.value === "countryside" && answer4.value === "hiphop") {
+            } else if (answer1.value === "black" && answer2.value === "home" && answer3.value === "countryside" && answer4.value === "hiphop" && answer5.value === "drama" && answer6.value === "socializing" && answer7.value === "adventuring" && answer8.value === "mexican") {
                 car = "Mercedes Amg e63";
             } else {
                 car = "Pagani Huayra";
